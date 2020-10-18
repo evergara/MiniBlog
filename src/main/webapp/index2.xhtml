@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>my Blog</title>
+</h:head>
+<h:body>
+	<b:container>
+		<b:form>
+			<b:inputText id="name" value="#{personasBean.persona.nombre}" label="Name" />
+			<b:commandButton value="Registrar" actionListener="#{personasBean.registrar()}" />
+		</b:form>
+	
+
+		<b:dataTable var="registro" value="#{personasBean.lista}"
+			custom-options="dom: 'lfrtiBp',buttons: ['colvis','copy','csv',{extend: 'excelHtml5', exportOptions: {columns: [ 0, 1, 2, 3, 5 ]}},{extend: 'pdfHtml5', exportOptions: {columns: [ 0, 1, 2, 3, 5 ]}},'print']">
+			<b:dataTableColumn label="ID" value="#{registro.idPersona}" />
+			<b:dataTableColumn label="Nombre" value="#{registro.nombre}" />
+		</b:dataTable>
+	</b:container>
+</h:body>
+</html>

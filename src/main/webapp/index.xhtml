@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<h:form>
+		<p:outputLabel value="Nombre" />
+		<p:inputText value="#{personasBean.persona.nombre}" />
+		<p:commandButton value="Registra"
+			actionListener="#{personasBean.registrar()}" />
+
+
+		<p:dataTable var="registro" value="#{personasBean.lista}">
+			<p:column headerText="Id">
+				<h:outputText value="#{registro.idPersona}" />
+			</p:column>
+			<p:column headerText="Nombre">
+				<h:outputText value="#{registro.nombre}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</body>
+</html>
